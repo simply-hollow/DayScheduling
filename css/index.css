@@ -1,47 +1,108 @@
 * { 
     margin: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    --headerFontSize: 2rem;   
-    --headerPadding: 0.5rem; 
-    --footerFontSize: 1rem;
-    --footerPadding: 1rem;
+    /*font-family: Verdana, Geneva, Tahoma, sans-serif;*/
+    --headerFontSize: 2rem;
+    --headerPadding: 1.0rem;
+    --footerFontSize: 0.75rem;
+    --footerPadding: 1.0rem;
     --mainHeight: calc(
-        100vh 
+        98.5vh 
         - var(--headerFontSize) 
         - (2 * var(--headerPadding))
         - var(--footerFontSize) 
         - (2 * var(--footerPadding))
     );
+    --weeklySummaryFontSize: 1.5rem;
+    --weeklySummaryPadding: 1.2rem; 
+    font-style: italic;
 }
 
-html {
-    line-height: 1;
-    font-size: 62.5%;
-}
 
-body {
-    padding: 0;
-}
-
-header {
-    background-color: lightgreen;
+.header {
+    background-color: black;
     font-size: var(--headerFontSize);
     padding: var(--headerPadding);
     text-align: center;
+    color: white;
 }
 
-main {
-    background-color: lightblue;
+.main {
     font-size: 1.5rem;
     text-align: center;
     height: var(--mainHeight);
     overflow-y: auto;
 }
 
-footer {
-    background-color: lightgreen;
+.footer {
+    background-color: black;
     font-size: var(--footerFontSize);
     padding: var(--footerPadding);
     text-align: center;
+    color: white;
 }
 
+.day {
+    /* Have each day take up 1/3rd of the application (main) height */
+    height: calc((    
+        var(--mainHeight) 
+        - var(--weeklySummaryFontSize)
+        - (2 * var(--weeklySummaryPadding)))
+        / 3
+    );
+    font-size: 1.75rem;
+    font-style: bold;
+    text-align: left;
+    color: orange;
+}
+
+.day:nth-of-type(even) {
+    background-color: lightblue;
+}
+
+.tasks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: black;
+}
+
+.weekly-summary {
+    font-size: var(--weeklySummaryFontSize);
+    padding: var(--weeklySummaryPadding);
+    color: seagreen;
+}
+
+.circle-container {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-bottom: 0.1rem solid MediumSlateBlue;
+    width: fit-content;
+    margin: 1rem 1rem;
+    height: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.circle-container.checked {
+    text-decoration: line-through;
+    text-decoration-color: MediumSlateBlue;
+}
+
+.circle {
+    height: 0.75rem; 
+    width: 0.75rem; 
+    background: white;        
+    border-radius: 50%;
+    border: 0.2rem solid MediumSlateBlue;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+.circle:hover {
+    box-shadow: 0 0 0.3rem MediumSlateBlue;
+}
+
+.circle-container.checked .circle {
+    background: MediumSlateBlue;
+}

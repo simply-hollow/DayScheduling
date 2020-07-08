@@ -1,48 +1,28 @@
 <html>
+    <head>
+        <title>Schedule</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../css/index.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
 
-<head>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="styling.css">
-    
-    <style>
-        * {
-            --weeklySummaryFontSize: 1.8rem;
-            --weeklySummaryPadding: 1.2rem;    
-        }
-        
-        .day {
-            /* Have each day take up 1/3rd of the application (main) height */
-            height: calc((    
-                var(--mainHeight) 
-                - var(--weeklySummaryFontSize)
-                - (2 * var(--weeklySummaryPadding)))
-                / 3
-            );
-        }
-        
-        .day:nth-of-type(even) {
-            background-color: lightyellow;
-        }
-        
-        .tasks {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-        
-        .weekly-summary {
-            font-size: var(--weeklySummaryFontSize);
-            padding: var(--weeklySummaryPadding);
-        }
-    </style>
-</head>
+    <body>
+        <div class="header">
+            <p>Weekly Schedule
+                <span>
+                    <i class="fa fa-calendar" style="font-size:1.75rem; color:red"></i>
+                </span>
+            </p>
+        </div>
 
-<body>
-    <header>Weekly Schedule ✅</header>
-    <main id="WeeklySchedule"></main>
-    <footer>Course by Radical-Coder and You!</footer>
+        <div id="WeeklySchedule" class="main">
+            
+        </div>
 
-    <script src="index.js"></script>
-</body>
+        <div class="footer">
+            <p>Developed by Ankit. Copyright @2020.</p>
+        </div>
 
+        <script src="../js/index.js"></script>
+    </body>
 </html>

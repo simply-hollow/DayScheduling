@@ -3,7 +3,7 @@ function roll(min, max, floatFlag) {
     return floatFlag ? r : Math.floor(r)
 }
 
-let weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 let firstDay = new Date("3/1/2020")
 
 function getNextDay(day) {
@@ -39,7 +39,7 @@ let week = buildWeek(firstDay)
 let schedule = document.getElementById("WeeklySchedule")
 let scheduleHtml = week.reduce((accum, day) => {
     return accum + `<div class="day">
-        <div>${weekdays[day.date.getDay()]} - ${getDayTasksComplete(day)} Complete</div>
+        <div>${weekdays[day.date.getDay()]}</div>
         <div class="tasks">
             ${tasksToHtml(day.tasks)}
         </div>
@@ -57,12 +57,14 @@ function tasksToHtml(tasks) {
     }, '')
 }
 
+/*Implements a function which returns tasks completed per day*/
 function getDayTasksComplete(day) {
     return day.tasks.reduce((accumulator, task) => {
         return task.complete ? accumulator + 1 : accumulator
     }, 0)
 }
 
+/*Implements a function which returns tasks completed per week*/
 function getWeekTasksComplete(week) {
     return week.reduce((accumulator, day) => {
         return accumulator + getDayTasksComplete(day)    
